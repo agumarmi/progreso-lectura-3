@@ -1,0 +1,184 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f900;
+    margin: 0;
+}
+
+.color-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    
+}
+
+.color-picker-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    background-color: white;
+    
+}
+
+
+.buttons{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px; /* Ajusta el ancho según lo necesites */
+    padding: 10px 20px;
+    background-color: #d18858;
+    color: white;
+    border: thin;
+    cursor: pointer;
+    display: block; /* Hace que los botones ocupen una línea completa */
+    margin-bottom: 10px; /* Espacio entre ellos */
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.buttons:hover {
+    background-color: #bb5d1e;
+}
+button {
+    width: 100%;
+}
+
+#container {
+    position: absolute;
+    cursor: grab;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(255, 211, 169);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    right: 0;
+    bottom: 0;
+    margin: 10px;
+}
+
+#circle-container {
+    position: absolute;
+    cursor: grab;
+    top: 0;
+    left: 0;
+}
+
+
+.circle-background {
+    fill: none;
+    stroke: #e6e6e6;
+    stroke-width: 15;
+}
+
+.circle-progress {
+    fill: none;
+    stroke-width: 15;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.3s;
+}
+
+#progress-text {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px #7c7c7c60;
+	text-shadow: 0px 1px 2px #23430C;
+}
+
+#progress-text-pages {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-weight: bold;
+    -webkit-text-stroke: 0.5px #7c7c7c60;
+	text-shadow: 0px 1px 2px #23430C;
+}
+
+input[type="number"], input[type="text"] {
+    margin: 10px;
+    padding: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+
+.update {
+    background-color: lightseagreen;
+    padding: 10px 20px;
+    color: white;
+    border: thin;
+    cursor: pointer;
+    display: block; /* Hace que los botones ocupen una línea completa */
+    margin-bottom: 10px; /* Espacio entre ellos */
+    border-radius: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.update:hover{
+    background-color: darkcyan;
+}
+
+/* Estilos de Pickr */
+.pcr-btn {
+    display: inline-block;
+    padding: 5px;
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.pcr-btn:focus {
+    outline: none;
+}
+.config {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+.titulo {
+    font-size: 30px;
+    font-weight: normal;
+    margin-bottom: 10px;    
+}
+
+.container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.eyes {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    text-align: center;    
+}
+.texto-paginas {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    text-align: center;    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:small;
+}
+
+.texto {
+    position: flex;
+    top: 0%;
+    left: 0%;
+    text-align: center;    
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}

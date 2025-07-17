@@ -1,0 +1,71 @@
+<!-- settings.html -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración de Progreso</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input {
+            margin-top: 5px;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 15px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Configuración del Progreso</h1>
+        <label>Páginas Totales:<input type="number" id="totalPages"></label>
+        <label>Páginas Leídas:<input type="number" id="readPages"></label>
+        <label>Color del Progreso:<input type="color" id="progressColor"></label>
+        <button onclick="saveSettings()">Guardar</button>
+    </div>
+    <script>
+        function saveSettings() {
+            const totalPages = document.getElementById("totalPages").value || 100;
+            const readPages = document.getElementById("readPages").value || 0;
+            const color = document.getElementById("progressColor").value || "#3498db";
+            
+            localStorage.setItem("totalPages", totalPages);
+            localStorage.setItem("readPages", readPages);
+            localStorage.setItem("progressColor", color);
+        }
+    </script>
+</body>
+</html>

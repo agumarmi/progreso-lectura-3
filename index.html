@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<link href="styles.css" rel="stylesheet">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progreso de Lectura</title>
+    <!-- Incluir Pickr -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/classic.min.css"/> <!-- 'classic' theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/monolith.min.css"/> <!-- 'monolith' theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css"/> <!-- 'nano' theme -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/pickr.es5.min.js"></script>
+</head>
+<body onload="loadSavedData()">
+    <div id="circle-container" draggable="true">
+        <svg width="200" height="200" viewBox="0 0 200 200">
+            <circle cx="100" cy="100" r="65" class="circle-background" />
+            <circle id="circle-progress" cx="100" cy="100" r="65" class="circle-progress" stroke-dasharray="440" stroke-dashoffset="440" transform="rotate(-90 100 100)" />
+        </svg>
+        <div class ="texto" id="progress-text">0%</div>
+        <div class="texto-paginas" id="progress-text-pages" >0 / 0</div>
+    </div>
+    <div class="container" id="container" draggable="false">
+        <h1 class="titulo">Progreso de Lectura</h1>
+            <label for="pages-total">Páginas Totales:</label>
+            <input type="number" id="pages-total" value="0">
+            <br>
+            <label for="pages-read">Páginas Leídas:</label>
+            <input type="number" id="pages-read" value="0">
+            <br>
+            <label for="color-picker">Selecciona color del círculo:</label>
+            <div class="color-picker">
+                <br>
+                <div id="color-picker" style="width: fit-content;"></div>
+            </div>
+            <label for="color-picker">Selecciona color del texto:</label>
+            <div class="color-picker-text">
+                <br>
+                <div id="color-picker" style="width: fit-content;"></div>
+            </div>
+    </div>
+
+    <div class="eyes">
+        <button onclick="showAll()">👀</button>
+    </div>
+    <div class="config" id="config" draggable="false">
+        
+            <button class="update" onclick="updateProgress()">Actualizar Progreso</button>
+            <!-- <button class="buttons" onclick="showProgress()">Mostrar/Ocultar progreso</button> -->
+            <!-- <button class="buttons"onclick="showContainer()">Mostrar/Ocultar configuración</button> -->
+            <button class="buttons"onclick="addPage()">+1 página</button>
+            <button class="buttons"onclick="delPage()">-1 página</button>
+            <button class="buttons"onclick="showPages()">Mostrar/Ocultar páginas</button>
+            <button class="buttons"onclick="showPercentage()">Mostrar/Ocultar porcentaje</button>
+            <button class="buttons" onclick="resetProgress()">Reset datos</button>
+        
+    </div> 
+    
+    <script src="script.js"></script>
+</body>
+</html>
