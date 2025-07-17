@@ -77,6 +77,62 @@ function delPage() {
     updateProgress();
 }
 
+//--------------- Función para incrementar tamaño del porcentaje
+function increasePercentage() {
+    const progressText = document.getElementById('progress-text');
+    let currentSize = parseInt(window.getComputedStyle(progressText).fontSize);
+    currentSize += 2; // Incrementar en 2px
+    progressText.style.fontSize = `${currentSize}px`;
+}
+//--------------- Función para incrementar tamaño de las páginas
+function increasePages() {
+    const progressTextPages = document.getElementById('progress-text-pages');
+    let currentSize = parseInt(window.getComputedStyle(progressTextPages).fontSize);
+    currentSize += 2; // Incrementar en 2px
+    progressTextPages.style.fontSize = `${currentSize}px`;
+}
+//--------------- Función para decrementar tamaño del porcentaje
+function decreasePercentage() {
+    const progressText = document.getElementById('progress-text');
+    let currentSize = parseInt(window.getComputedStyle(progressText).fontSize);
+    if (currentSize > 10) { // Evitar que el tamaño sea demasiado pequeño
+        currentSize -= 2; // Decrementar en 2px
+        progressText.style.fontSize = `${currentSize}px`;
+    }
+}
+//--------------- Función para decrementar tamaño de las páginas
+function decreasePages() {
+    const progressTextPages = document.getElementById('progress-text-pages');
+    let currentSize = parseInt(window.getComputedStyle(progressTextPages).fontSize);
+    if (currentSize > 10) { // Evitar que el tamaño sea demasiado pequeño
+        currentSize -= 2; // Decrementar en 2px
+        progressTextPages.style.fontSize = `${currentSize}px`;
+    }
+}
+//--------------- Función para cambiar la fuente del texto
+function changeFont(fuente) {
+    const progressText = document.getElementById('progress-text');
+    const progressTextPages = document.getElementById('progress-text-pages');
+    const fontSelect = document.getElementById('font-select');
+    const selectedFont = fontSelect.value;
+
+    // Cambiar la fuente del texto del progreso
+    progressText.style.fontFamily = selectedFont;
+    progressTextPages.style.fontFamily = selectedFont;
+
+    // Guardar la fuente seleccionada en localStorage
+    localStorage.setItem('font-select', selectedFont);
+}
+// Recuperar la fuente guardada en localStorage al cargar la página
+window.onload = function() {
+    const savedFont = localStorage.getItem('font-select');
+    if (savedFont) {
+        document.getElementById('progress-text').style.fontFamily = savedFont;
+        document.getElementById('progress-text-pages').style.fontFamily = savedFont;
+        document.getElementById('font-select').value = savedFont; // Actualizar el select
+    }
+};
+
 //--------------- Función para actualizar el progreso
 function updateProgress() {
     let totalPages = parseInt(document.getElementById('pages-total').value);
@@ -121,6 +177,7 @@ function loadSavedData() {
     const savedTotalPages = localStorage.getItem('totalPages');
     const savedProgressColor = localStorage.getItem('progressColor');
     const savedTextColor = localStorage.getItem('textColor');
+    const savedFont = localStorage.getItem('font-select');
 
     if (savedPagesRead !== null) {
         document.getElementById('pages-read').value = savedPagesRead;
@@ -135,6 +192,12 @@ function loadSavedData() {
         document.getElementById('progress-text').style.color = savedTextColor;
         document.getElementById('progress-text-pages').style.color = savedTextColor;
     }
+    if( savedFont) {
+        document.getElementById('progress-text').style.fontFamily = savedFont;
+        document.getElementById('progress-text-pages').style.fontFamily = savedFont;
+        document.getElementById('font-select').value = savedFont; // Actualizar el select
+    }
+
 
     updateProgress(); // Actualizar la UI con los valores cargados
 }
@@ -209,3 +272,4 @@ document.addEventListener("drop", (e) => {
     circle_container.style.left = `${e.clientX - offsetX}px`;
     circle_container.style.top = `${e.clientY - offsetY}px`;
 });
+

@@ -52,13 +52,42 @@
             <button class="update" onclick="updateProgress()">Actualizar Progreso</button>
             <!-- <button class="buttons" onclick="showProgress()">Mostrar/Ocultar progreso</button> -->
             <!-- <button class="buttons"onclick="showContainer()">Mostrar/Ocultar configuración</button> -->
-            <button class="buttons"onclick="addPage()">+1 página</button>
-            <button class="buttons"onclick="delPage()">-1 página</button>
-            <button class="buttons"onclick="showPages()">Mostrar/Ocultar páginas</button>
-            <button class="buttons"onclick="showPercentage()">Mostrar/Ocultar porcentaje</button>
-            <button class="buttons" onclick="resetProgress()">Reset datos</button>
-        
+            <div class ="contenedor-botones">
+                <button class="buttons"onclick="addPage()">+1 página</button>
+                <button class="buttons"onclick="delPage()">-1 página</button>
+            </div>
+            <div class ="contenedor-botones">
+                <button class="buttons"onclick="showPages()">Mostrar/Ocultar páginas</button>
+                <button class="buttons"onclick="showPercentage()">Mostrar/Ocultar porcentaje</button>
+            </div>
+            <div class ="contenedor-botones">
+                <button class="buttons"onclick="increasePercentage()">Aumentar tamaño %</button>
+                <button class="buttons"onclick="decreasePercentage()">Disminuir tamaño %</button>
+            </div>
+            <div class ="contenedor-botones">
+                <button class="buttons"onclick="increasePages()">Aumentar tamaño páginas</button>
+                <button class="buttons"onclick="decreasePages()">Disminuir tamaño páginas</button>
+            </div>
+
+            <div class ="contenedor-botones">
+                <button class="buttons">Selecciona una fuente:</label>
+                    <select id="font-select" onchange="changeFont(this.value)">
+                        <option value="Arial">Arial</option>
+                        <option value="Georgia">Georgia</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                        <option value="Courier New">Courier New</option>
+                        <option value="Verdana">Verdana</option>
+                        <option value="Candara">Candara</option>
+                        <option value="Ginebra">Ginebra</option>
+                        <option value="Calibri">Calibri</option>
+                    
+                    </select>
+                </button>
+
+                <button class="buttons" onclick="resetProgress()">Reset datos</button>
+            </div>
     </div> 
+    
     
     <script src="script.js"></script>
 </body>
